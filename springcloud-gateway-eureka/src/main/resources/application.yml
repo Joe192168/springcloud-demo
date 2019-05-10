@@ -1,0 +1,31 @@
+server:
+  port: 8989
+spring:
+  application:
+    name: cloud-gateway-eureka
+  redis:
+    host: localhost
+    password:
+    port: 6379
+  cloud:
+    gateway:
+     discovery:
+        locator:
+         enabled: true
+     routes:
+     - id: hystrix_route
+       uri: lb://springcloud-client
+       predicates:
+       - Path=/user/**
+       filters:
+       - name: Hystrix
+         args:
+           name: fallbackcmd
+           fallbackUri: forward:/fallback
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
