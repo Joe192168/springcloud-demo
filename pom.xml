@@ -21,7 +21,7 @@
 		<module>sprincloud-eureka</module>
 		<module>springcloud-client</module>
 		<module>springcloud-serve</module>
-		<module>springcloud-gateway-eureka</module>
+		<module>springcloud-gateway</module>
 	</modules>
 
 	<properties>

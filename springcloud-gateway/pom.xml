@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
-	<artifactId>springcloud-gateway-eureka</artifactId>
+	<artifactId>springcloud-gateway</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springcloud-gateway-eureka</name>
+	<name>springcloud-gateway</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
