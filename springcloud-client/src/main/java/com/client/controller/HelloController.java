@@ -6,13 +6,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * @program: springcloudeurekademo
- * @description:
- * @author: 肖乔辉
- * @create: 2019-05-08 15:29
- * @version: 1.0.0
- */
 @RestController
 public class HelloController {
 
@@ -22,6 +15,11 @@ public class HelloController {
     @RequestMapping("/hello/{name}")
     public String index(@PathVariable("name") String name) {
         return iHello.hello(name);
+    }
+
+    @RequestMapping("/foo")
+    public String foo(String foo) {
+        return "hello "+foo+"!";
     }
 
 }

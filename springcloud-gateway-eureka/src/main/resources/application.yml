@@ -13,15 +13,48 @@ spring:
         locator:
          enabled: true
      routes:
-     - id: hystrix_route
-       uri: lb://springcloud-client
-       predicates:
-       - Path=/user/**
+#     - id: nameRoot
+#       uri: lb://springcloudclient
+#       predicates:
+#       - Path=/name/**
+#       filters:
+#       - StripPrefix=2  #StripPrefix=2 就代表截取路径的个数
+     - id: add_request_parameter_route
+       uri: lb://springcloudclient
        filters:
-       - name: Hystrix
-         args:
-           name: fallbackcmd
-           fallbackUri: forward:/fallback
+       - AddRequestParameter=foo, bar #这将为foo=bar所有匹配请求添加下游请求的查询字符串
+       predicates:
+         - Method=GET
+#     - id: requestratelimiter_route
+#       uri: lb://springcloudclient
+#       filters:
+#       - StripPrefix=1
+#       - name: RequestRateLimiter
+#         args:
+#           redis-rate-limiter.replenishRate: 10
+#           redis-rate-limiter.burstCapacity: 20
+#           key-resolver: "#{@userKeyResolver}"
+#       predicates:
+#         - Path=/user/**
+#     - id: hystrix_route
+#       uri: lb://springcloudclient
+#       predicates:
+#       - Path=/foo/**
+#       filters:
+#       - StripPrefix=1
+#       - name: Hystrix
+#         args:
+#           name: fallbackcmd
+#           fallbackUri: forward:/fallback
+#     - id: retry_test
+#       uri: lb://springcloudclient
+#       predicates:
+#       - Path=/retry
+#       filters:
+#       - name: Retry
+#         args:
+#           retries: 3
+#           statuses: BAD_GATEWAY
 eureka:
   client:
     service-url:

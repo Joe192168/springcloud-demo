@@ -2,7 +2,7 @@ server:
   port: 8081
 spring:
   application:
-    name: springcloud-serve
+    name: springcloudserve
 eureka:
   client:
     serviceUrl:
