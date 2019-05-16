@@ -1,9 +1,9 @@
 server:
-  port: 8082
+  port: 9002
 spring:
   application:
     name: springcloudclient
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka8001.com:8001/eureka/,http://eureka8002.com:8002/eureka/,http://eureka8003.com:8003/eureka/    #连接集群环境

@@ -1,0 +1,9 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: springcloudserve
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka8001.com:8001/eureka/,http://eureka8002.com:8002/eureka/,http://eureka8003.com:8003/eureka/    #\u8FDE\u63A5\u96C6\u7FA4\u73AF\u5883

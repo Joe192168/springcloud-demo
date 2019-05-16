@@ -1,4 +1,4 @@
-package com.gateway;
+package com.serve001;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-public class SpringcloudGatewayEurekaApplication {
+public class SpringcloudServe001Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringcloudGatewayEurekaApplication.class, args);
+		SpringApplication.run(SpringcloudServe001Application.class, args);
 	}
 
 }

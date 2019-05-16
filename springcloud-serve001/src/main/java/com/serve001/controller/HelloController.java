@@ -1,4 +1,4 @@
-package com.serve.controller;
+package com.serve001.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -9,7 +9,7 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public String index(@RequestParam String name) {
-        return "hello "+name+"，this is first server messge";
+        return "hello "+name+"，this is two server001 messge";
     }
 
 }

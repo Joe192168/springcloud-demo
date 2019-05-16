@@ -18,7 +18,9 @@
 	</parent>
 
 	<modules>
-		<module>sprincloud-eureka</module>
+		<module>springcloud-eureka8001</module>
+		<module>springcloud-eureka8002</module>
+		<module>springcloud-eureka8003</module>
 		<module>springcloud-client</module>
 		<module>springcloud-serve</module>
 		<module>springcloud-gateway</module>
