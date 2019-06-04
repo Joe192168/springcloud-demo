@@ -1,4 +1,4 @@
-package com.client.entity;
+package com.client.bean;
 
 /**
  * Created by aq on 2018/11/21.

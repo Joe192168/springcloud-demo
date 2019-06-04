@@ -1,7 +1,7 @@
-package com.xiaoqi.service;
+package com.client.service;
 
-import com.xiaoqi.bean.Order;
-import org.springframework.stereotype.Service;
+
+import com.client.bean.Order;
 
 /**
  * Created by aq on 2018/11/21.

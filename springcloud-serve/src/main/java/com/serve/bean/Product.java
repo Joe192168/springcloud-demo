@@ -1,4 +1,4 @@
-package com.xiaoqi.bean;
+package com.serve.bean;
 
 /**
  * Created by aq on 2018/11/22.

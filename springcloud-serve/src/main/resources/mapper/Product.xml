@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xiaoqi.mapper.ProductMapper">
-    <resultMap id="BaseResultMap" type="Product">
+<mapper namespace="com.serve.mapper.ProductMapper">
+    <resultMap id="BaseResultMap" type="com.serve.bean.Product">
         <id column="PRODUCT_ID" property="productId"/>
         <result column="PRODUCT_NAME" property="productName"/>
         <result column="PRODUCT_PIECE" property="productPiece"/>
@@ -11,7 +11,7 @@
 		PRODUCT_ID, PRODUCT_NAME,PRODUCT_PIECE
 	</sql>
 
-    <update id="modifyProductPiece" parameterType="Product">
+    <update id="modifyProductPiece" parameterType="com.serve.bean.Product">
 		UPDATE Product SET PRODUCT_PIECE=PRODUCT_PIECE-1 WHERE PRODUCT_ID=#{productId}
 	</update>
 

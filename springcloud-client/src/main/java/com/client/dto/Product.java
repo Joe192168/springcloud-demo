@@ -1,4 +1,4 @@
-package com.xiaoqi.dto;
+package com.client.dto;
 
 /**
  * Created by aq on 2018/11/22.

@@ -1,7 +1,7 @@
-package com.xiaoqi.controller;
+package com.serve.controller;
 
-import com.xiaoqi.bean.Product;
-import com.xiaoqi.service.ProductService;
+import com.serve.bean.Product;
+import com.serve.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;

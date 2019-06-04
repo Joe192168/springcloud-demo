@@ -1,9 +1,8 @@
-package com.xiaoqi.controller;
+package com.client.controller;
 
-import com.xiaoqi.bean.Order;
-import com.xiaoqi.dto.Product;
-import com.xiaoqi.feign.ProductFeign;
-import com.xiaoqi.service.OrderService;
+import com.client.bean.Order;
+import com.client.feign.ProductFeign;
+import com.client.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -48,6 +47,7 @@ public class OrderController {
             orderService.saveOrder(order);
             return "sucess";
         } catch (Exception ex) {
+            ex.printStackTrace();
             return "error";
         }
     }

@@ -1,6 +1,6 @@
 package com.client.controller;
 
-import com.client.dao.IHello;
+import com.client.feign.ProductFeign;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.*;
 public class HelloController {
 
     @Autowired
-    public IHello iHello;
+    public ProductFeign productFeign;
 
     @GetMapping("/hello/{name}")
     public String index(@PathVariable String name) {
-        return iHello.hello(name);
+        return productFeign.hello(name);
     }
 
     @GetMapping("/foo")

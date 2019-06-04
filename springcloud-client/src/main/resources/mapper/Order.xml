@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xiaoqi.mapper.OrderMapper">
-    <resultMap id="BaseResultMap" type="Order">
+<mapper namespace="com.client.mapper.OrderMapper">
+    <resultMap id="BaseResultMap" type="com.client.bean.Order">
         <id column="ORDERS_ID" property="orderId"/>
         <result column="ORDERS_PRODUCT_ID" property="ordersProductId"/>
     </resultMap>
@@ -10,7 +10,7 @@
 		ORDERS_ID, ORDERS_PRODUCT_ID
 	</sql>
 
-    <insert id="saveOrder" parameterType="Order">
+    <insert id="saveOrder" parameterType="com.client.bean.Order">
 		INSERT INTO ORDERS VALUES (NULL,#{ordersProductId})
 	</insert>
 

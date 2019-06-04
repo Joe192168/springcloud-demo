@@ -1,6 +1,6 @@
-package com.xiaoqi.mapper;
+package com.client.mapper;
 
-import com.xiaoqi.bean.Order;
+import com.client.bean.Order;
 import org.springframework.stereotype.Repository;
 
 /**

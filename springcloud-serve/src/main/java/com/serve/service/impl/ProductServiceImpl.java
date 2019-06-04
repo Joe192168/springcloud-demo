@@ -1,9 +1,10 @@
-package com.xiaoqi.service.impl;
+package com.serve.service.impl;
 
-import com.codingapi.tx.annotation.TxTransaction;
-import com.xiaoqi.bean.Product;
-import com.xiaoqi.mapper.ProductMapper;
-import com.xiaoqi.service.ProductService;
+
+import com.codingapi.txlcn.tc.annotation.LcnTransaction;
+import com.serve.bean.Product;
+import com.serve.mapper.ProductMapper;
+import com.serve.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,8 +20,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional
-    @TxTransaction(isStart = false)
+    @LcnTransaction
     public void modifyProductPiece(Product product) {
+        System.out.println("$$$$$$$$$$$$$$$$$$$$$$$$modifyProductPiece$$$$$$$$$$$$$$$$$");
         productMapper.modifyProductPiece(product);
 
     }

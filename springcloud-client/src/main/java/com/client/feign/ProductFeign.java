@@ -1,7 +1,7 @@
-package com.xiaoqi.feign;
+package com.client.feign;
 
-import com.xiaoqi.dto.Product;
-import com.xiaoqi.feign.fallback.ProductFeignFallback;
+
+import com.client.dto.Product;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * Created by aq on 2018/11/22.
  */
 @Component
-@FeignClient(name = "product-service", fallback = ProductFeignFallback.class)
+@FeignClient(name = "springcloudserve")
 public interface ProductFeign {
 
     @RequestMapping("/product/modifyProductPiece")
@@ -20,5 +20,8 @@ public interface ProductFeign {
 
     @RequestMapping("/product/modifyProductPiece2")
     String modifyProductPiece2();
+
+    @RequestMapping(value = "/hello")
+    String hello(@RequestParam(value = "name") String name);
 
 }
