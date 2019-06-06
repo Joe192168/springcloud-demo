@@ -1,6 +1,11 @@
 server:
   port: 9000
+# 心跳检测检测与续约时间
+# 测试时将值设置设置小些，保证服务关闭后注册中心能及时踢出服务
 eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
   client:
     serviceUrl:
       defaultZone: http://eureka8001.com:8001/eureka/    #连接集群环境
@@ -41,4 +46,23 @@ mybatis:
   type-aliases-package: com.serve.mapper
 tx-lcn:
   client:
-    manager-address: 127.0.0.1:7100
+    #TC方，启动时按配置与集群建立连接，成功后，会再与集群协商，查询集群大小并保持与所有TM的连接
+    manager-address: 127.0.0.1:7100,127.0.0.1:7101
+  #开启微服务集群
+  springcloud:
+    loadbalance:
+      enabled: true
+  logger:
+        enabled: true
+        driver-class-name: ${spring.datasource.druid.driver-class-name}
+        jdbc-url: ${spring.datasource.druid.url}
+        username: ${spring.datasource.druid.username}
+        password: ${spring.datasource.druid.password}
+  ribbon:
+    loadbalancer:
+      dtx:
+        enabled: true
+logging:
+  level:
+    com:
+      codingapi: debug

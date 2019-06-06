@@ -8,5 +8,5 @@ import com.client.bean.Order;
  */
 public interface OrderService {
 
-    void saveOrder(Order order);
+    String saveOrder(Order order);
 }

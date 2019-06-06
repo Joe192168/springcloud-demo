@@ -1,9 +1,68 @@
 server:
   port: 9001
+# 心跳检测检测与续约时间
+# 测试时将值设置设置小些，保证服务关闭后注册中心能及时踢出服务
+eureka:
+  instance:
+    lease-renewal-interval-in-seconds: 1
+    lease-expiration-duration-in-seconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://eureka8001.com:8001/eureka/    #连接集群环境
 spring:
   application:
     name: springcloudserve
-eureka:
+  datasource:
+      name: order_db
+      type: com.alibaba.druid.pool.DruidDataSource
+      #druid相关配置
+      druid:
+        #监控统计拦截的filters
+        filters: stat
+        driver-class-name: com.mysql.jdbc.Driver
+        #基本属性
+        url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+        username: root
+        password: root
+        #配置初始化大小/最小/最大
+        initial-size: 1
+        min-idle: 1
+        max-active: 500
+        #获取连接等待超时时间
+        max-wait: 60000
+        #间隔多久进行一次检测，检测需要关闭的空闲连接
+        time-between-eviction-runs-millis: 60000
+        #一个连接在池中最小生存的时间
+        min-evictable-idle-time-millis: 300000
+        validation-query: SELECT 'x'
+        test-while-idle: true
+        test-on-borrow: false
+        test-on-return: false
+        #打开PSCache，并指定每个连接上PSCache的大小。oracle设为true，mysql设为false。分库分表较多推荐设置为false
+        pool-prepared-statements: false
+        max-pool-prepared-statement-per-connection-size: 500
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.serve.mapper
+tx-lcn:
   client:
-    serviceUrl:
-      defaultZone: http://eureka8001.com:8001/eureka/,http://eureka8002.com:8002/eureka/,http://eureka8003.com:8003/eureka/    #\u8FDE\u63A5\u96C6\u7FA4\u73AF\u5883
+    #TC方，启动时按配置与集群建立连接，成功后，会再与集群协商，查询集群大小并保持与所有TM的连接
+    manager-address: 127.0.0.1:7100,127.0.0.1:7101
+  #开启微服务集群
+  springcloud:
+    loadbalance:
+       enabled: true
+  logger:
+    enabled: true
+    driver-class-name: ${spring.datasource.druid.driver-class-name}
+    jdbc-url: ${spring.datasource.druid.url}
+    username: ${spring.datasource.druid.username}
+    password: ${spring.datasource.druid.password}
+  ribbon:
+    loadbalancer:
+      dtx:
+        enabled: true
+logging:
+  level:
+    com:
+      codingapi: debug

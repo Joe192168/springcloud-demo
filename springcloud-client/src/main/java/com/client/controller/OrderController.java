@@ -44,8 +44,7 @@ public class OrderController {
         try {
             Order order = new Order();
             order.setOrdersProductId(productId);
-            orderService.saveOrder(order);
-            return "sucess";
+            return orderService.saveOrder(order);
         } catch (Exception ex) {
             ex.printStackTrace();
             return "error";
