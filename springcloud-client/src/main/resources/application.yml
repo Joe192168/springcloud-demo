@@ -61,3 +61,14 @@ logging:
   level:
     com:
       codingapi: debug
+#断路器
+feign:
+    hystrix:
+        enabled: true #开启服务降级(Hystrix断路器)
+hystrix:
+   command:
+     default:
+       execution:
+        isolation:
+         thread:
+          timeoutInMilliseconds: 15000 #超时时间设为5秒在降级默认是1秒
