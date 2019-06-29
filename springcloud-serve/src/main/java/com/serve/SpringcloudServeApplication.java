@@ -1,6 +1,6 @@
 package com.serve;
 
-import com.codingapi.txlcn.tc.config.EnableDistributedTransaction;
+import org.apache.servicecomb.pack.omega.spring.EnableOmega;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
 @EnableEurekaClient
-@EnableDistributedTransaction
+@EnableOmega
 @MapperScan(basePackages = {"com.serve.mapper"})
 public class SpringcloudServeApplication {
 
