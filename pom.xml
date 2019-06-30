@@ -26,6 +26,9 @@
 		<module>springcloud-serve001</module>
 		<module>springcloud-gateway</module>
 		<module>springcloud-tm</module>
+		<module>springcloud-auth</module>
+		<module>springcloud-member</module>
+		<module>springcloud-zuul</module>
 	</modules>
 
 	<properties>

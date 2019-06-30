@@ -1,0 +1,26 @@
+auth-server: http://localhost:1000/
+spring:
+  application:
+    name: springcloud-member
+
+server:
+  port: 10001
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}
+  client:
+    service-url:
+      defaultZone: http://eureka8001.com:8001/eureka/
+
+security:
+  oauth2:
+    client:
+      client-id: springcloud-member
+      client-secret: 123456
+      user-authorization-uri: ${auth-server}/oauth/authorize
+      access-token-uri: ${auth-server}/oauth/token
+    resource:
+      jwt:
+        key-uri: ${auth-server}/oauth/token_key

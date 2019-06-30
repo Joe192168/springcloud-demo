@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<pack.version>0.4.0</pack.version>
 		<codingapi.txlcn.version>5.0.2.RELEASE</codingapi.txlcn.version>
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 	</properties>
@@ -24,6 +25,12 @@
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
@@ -44,16 +51,6 @@
 			<version>1.1.1</version>
 		</dependency>
 		<dependency>
-			<groupId>com.codingapi.txlcn</groupId>
-			<artifactId>txlcn-tc</artifactId>
-			<version>${codingapi.txlcn.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.codingapi.txlcn</groupId>
-			<artifactId>txlcn-txmsg-netty</artifactId>
-			<version>${codingapi.txlcn.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
@@ -67,6 +64,21 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicecomb.pack</groupId>
+			<artifactId>omega-spring-starter</artifactId>
+			<version>${pack.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicecomb.pack</groupId>
+			<artifactId>omega-transport-resttemplate</artifactId>
+			<version>${pack.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.servicecomb.pack</groupId>
+			<artifactId>omega-spring-cloud-eureka-starter</artifactId>
+			<version>${pack.version}</version>
 		</dependency>
 	</dependencies>
 
