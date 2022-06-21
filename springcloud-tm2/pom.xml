@@ -20,7 +20,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<spring-cloud.version>Greenwich.SR1</spring-cloud.version>
 		<codingapi.txlcn.version>5.0.2.RELEASE</codingapi.txlcn.version>
-		<mysql.version>5.1.6</mysql.version>
+		<mysql.version>8.0.28</mysql.version>
 	</properties>
 
 	<dependencies>
